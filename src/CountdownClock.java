@@ -5,7 +5,7 @@ import java.util.TimerTask;
 public class CountdownClock {
     //declare the Timer t and Float i
     static Timer t;
-    static long i;
+    static int i;
     //main method
     public static void main(String[] args) {
         System.out.println("Countdown Clock intiated");
@@ -41,15 +41,14 @@ public class CountdownClock {
         System.out.println("Total duration: "+sec+" second(s)");
     }
 
-    private static final long seti(int period) {
+    private static final int seti(int period) {
         //if interval becomes zero or negative, end
         if (i > 0) {
-            i = i - period;
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+            i = i - period;           
         }
         else t.cancel();
-
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         return i;
     }
 }
